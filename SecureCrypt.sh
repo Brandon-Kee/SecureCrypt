@@ -55,3 +55,4 @@ validate_file() {
   fi
   return 0
 }
+
