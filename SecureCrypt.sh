@@ -41,3 +41,17 @@ log_error() {
 log_warning() {
   echo -e "${YELLOW}[!] $1${NC}"
 }
+
+# Check if file is valid
+validate_file() {
+  if [[ ! -f "$1" ]]; then
+    log_error "File not found: $1"
+    return 1
+  fi
+  
+  if [[ ! -r "$1" ]]; then
+    log_error "Cannot read file: $1"
+    return 1
+  fi
+  return 0
+}
