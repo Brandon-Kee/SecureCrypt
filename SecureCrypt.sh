@@ -19,3 +19,25 @@ NC='\033[0m'
 # Create temporary working directory
 mkdir -p "$TEMP_DIR"
 trap 'rm -rf "$TEMP_DIR"' EXIT
+
+display_header() {
+  clear
+  echo -e "${BLUE}"
+  echo "┌─────────────────────────────────────────────────┐"
+  echo "│          SECURE ENCYPTION & DECRYPTION          │"
+  echo "│               AES-256 + PBKDF2                  │"
+  echo "└─────────────────────────────────────────────────┘"
+  echo -e "${NC}"
+}
+
+log_success() {
+  echo -e "${GREEN}[✓] $1${NC}"
+}
+
+log_error() {
+  echo -e "${RED}[✗] $1${NC}" >&2
+}
+
+log_warning() {
+  echo -e "${YELLOW}[!] $1${NC}"
+}
