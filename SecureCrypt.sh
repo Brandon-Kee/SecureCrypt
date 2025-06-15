@@ -56,3 +56,41 @@ validate_file() {
   return 0
 }
 
+# Ensure passkey meets all requirements
+validate_passkey() {
+  local passkey="$1"
+  local error_msg=""
+  
+  # Check length
+  if [[ ${#passkey} -lt 12 ]]; then
+    error_msg+="Passkey must be at least 12 characters long.\n"
+  fi
+  
+  # Check for uppercase
+  if [[ ! "$passkey" =~ [A-Z] ]]; then
+    error_msg+="Passkey must contain at least one uppercase letter.\n"
+  fi
+  
+  # Check for lowercase
+  if [[ ! "$passkey" =~ [a-z] ]]; then
+    error_msg+="Passkey must contain at least one lowercase letter.\n"
+  fi
+  
+  # Check for numbers
+  if [[ ! "$passkey" =~ [0-9] ]]; then
+    error_msg+="Passkey must contain at least one number.\n"
+  fi
+  
+  # Check for special characters
+  if [[ ! "$passkey" =~ [[:punct:]] ]]; then
+    error_msg+="Passkey must contain at least one special character.\n"
+  fi
+  
+  if [[ -n "$error_msg" ]]; then
+    log_error "Passkey does not meet requirements:"
+    echo -e "$error_msg"
+    return 1
+  fi
+  
+  return 0
+}
