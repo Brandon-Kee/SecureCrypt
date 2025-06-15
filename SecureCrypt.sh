@@ -155,3 +155,37 @@ fetch_passkey() {
     fi
   done
 }
+
+# Encrypt the data
+encrypt_data() {
+  local input_file="$1"
+  local output_file="$2"
+  
+  validate_file "$input_file" || return 1
+  
+  if [[ -f "$output_file" ]]; then
+    log_warning "Output file already exists: $output_file"
+    read -p "Overwrite? (y/N): " overwrite
+    if [[ "$(echo "$overwrite" | tr '[:upper:]' '[:lower:]')" != "y" ]]; then
+      log_error "Operation cancelled by user"
+      return 1
+    fi
+  fi
+
+  echo -e "\n${BLUE}Initializing encryption...${NC}"
+  openssl enc -in "$input_file" -out "$output_file" \
+    -e -$DEFAULT_CIPHER -pass "pass:${PASSKEY}" \
+    -pbkdf2 -iter $PBKDF2_ITERATIONS
+  
+    if [[ $? -ne 0 ]]; then
+    log_error "Encryption failed"
+    return 1
+  fi
+
+  local hmac_file="${output_file}.hmac"
+  generate_hmac "$output_file" "$hmac_file"
+
+  log_success "File successfully encrypted"
+  echo -e "Encrypted file saved to: ${GREEN}$output_file${NC}"
+
+}
