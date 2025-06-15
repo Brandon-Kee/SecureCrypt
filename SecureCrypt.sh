@@ -94,3 +94,37 @@ validate_passkey() {
   
   return 0
 }
+
+# Create the passkey
+fetch_passkey() {
+  local passkey1 passkey2
+
+  prompt_hidden_input() {
+    local label="$1"
+    local input=""
+    local char
+
+    echo -e "${YELLOW}${label}${NC}"
+    echo -n "> "
+
+    while IFS= read -r -s -n1 char; do
+      
+      [[ $char == "" ]] && break
+      
+      if [[ $char == $'\x7f' ]]; then
+        if [[ -n "$input" ]]; then
+          input="${input%?}"
+          echo -ne "\b \b"
+        fi
+      else
+        input+="$char"
+        echo -n '*'
+      fi
+    done
+    echo
+    REPLY="$input"
+  }
+
+
+  done
+}
