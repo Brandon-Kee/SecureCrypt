@@ -125,6 +125,33 @@ fetch_passkey() {
     REPLY="$input"
   }
 
+    # Display passkey criteria
+  while true; do
+    echo
+    echo -e "${BLUE}Passkey requirements:${NC}"
+    echo -e "  - At least 12 characters"
+    echo -e "  - Contains uppercase, lowercase, number, special character\n"
 
+    prompt_hidden_input "Enter your passkey:"
+    passkey1="$REPLY"
+
+    if [[ -z "$passkey1" ]]; then
+      log_warning "Passkey cannot be empty"
+      continue
+    fi
+
+    if ! validate_passkey "$passkey1"; then
+      continue
+    fi
+
+    prompt_hidden_input "Confirm your passkey:"
+    passkey2="$REPLY"
+
+    if [[ "$passkey1" != "$passkey2" ]]; then
+      log_error "Passkeys do not match. Please try again."
+    else
+      PASSKEY="$passkey1"
+      return 0
+    fi
   done
 }
