@@ -226,3 +226,12 @@ decrypt_data() {
     return 1
   fi
 }
+
+# Creates HMAC
+generate_hmac() {
+  local file="$1"
+  local hmac_file="$2"
+
+  echo -n "$PASSKEY" | openssl dgst -sha256 -hmac "$(cat -)" "$file" | awk '{print $2}' > "$hmac_file"
+  log_success "HMAC generated and saved to: $hmac_file"
+}
