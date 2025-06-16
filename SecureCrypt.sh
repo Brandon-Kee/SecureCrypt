@@ -258,3 +258,44 @@ verify_hmac() {
   log_success "HMAC verification passed."
   return 0
 }
+
+# Display menu options
+show_menu() {
+  while true; do
+    display_header
+    echo -e "${YELLOW}Select an operation:${NC}"
+    echo -e "1) Encrypt file"
+    echo -e "2) Decrypt file"
+    echo -e "3) Exit"
+    echo -n -e "\n${BLUE}Enter your choice [1-3]: ${NC}"
+    
+    read -r choice
+    case $choice in
+      1)
+        read -p "Enter path of file to encrypt: " input_file
+        read -p "Enter output filename for encrypted file: " output_file
+        fetch_passkey
+        encrypt_data "$input_file" "$output_file"
+        ;;
+      2)
+        read -p "Enter path of file to decrypt: " input_file
+        read -p "Enter output filename for decrypted file: " output_file
+        fetch_passkey
+        decrypt_data "$input_file" "$output_file"
+        ;;
+      3)
+        echo -e "\n${BLUE}Terminating session...${NC}"
+        exit 0
+        ;;
+      *)
+        log_error "Invalid selection. Please choose 1, 2, or 3."
+        ;;
+    esac
+    
+    read -n 1 -s -r -p $'\nPress any key to continue...'
+  done
+}
+
+# Main execution
+trap 'log_error "Script interrupted by user"; exit 1' INT
+show_menu 
