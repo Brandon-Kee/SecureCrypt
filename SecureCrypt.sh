@@ -234,3 +234,27 @@ generate_hmac() {
   echo -n "$PASSKEY" | openssl dgst -sha256 -hmac "$(cat -)" "$file" | awk '{print $2}' > "$hmac_file"
   log_success "HMAC generated and saved to: $hmac_file" 
 }
+
+# Verifies HMAC is correct
+verify_hmac() {
+  local file="$1"
+  local hmac_file="$2"
+
+  if [[ ! -f "$hmac_file" ]]; then
+    log_error "Missing HMAC file: $hmac_file"
+    return 1
+  fi
+
+  local expected
+  expected=$(cat "$hmac_file")
+  local actual
+  actual=$(echo -n "$PASSKEY" | openssl dgst -sha256 -hmac "$(cat -)" "$file" | awk '{print $2}')
+
+  if [[ "$expected" != "$actual" ]]; then
+    log_error "HMAC verification failed! File may be corrupted or tampered with."
+    return 1
+  fi
+
+  log_success "HMAC verification passed."
+  return 0
+}
