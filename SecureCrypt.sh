@@ -189,3 +189,40 @@ encrypt_data() {
   echo -e "Encrypted file saved to: ${GREEN}$output_file${NC}"
 
 }
+
+# Decrypt the data
+decrypt_data() {
+  local input_file="$1"
+  local output_file="$2"
+  
+  validate_file "$input_file" || return 1
+
+  # Check HMAC
+  verify_hmac "$input_file" "$input_file.hmac" || {
+    log_error "Aborting decryption due to HMAC failure."
+    return 1
+  }
+
+  if [[ -f "$output_file" ]]; then
+    log_warning "Output file already exists: $output_file"
+    read -p "Overwrite? (y/N): " overwrite
+    if [[ "$(echo "$overwrite" | tr '[:upper:]' '[:lower:]')" != "y" ]]; then
+      log_error "Operation cancelled by user"
+      return 1
+    fi
+  fi
+
+  echo -e "\n${BLUE}Initializing decryption...${NC}"
+  openssl enc -in "$input_file" -out "$output_file" \
+    -d -$DEFAULT_CIPHER -pass "pass:${PASSKEY}" \
+    -pbkdf2 -iter $PBKDF2_ITERATIONS 2>/dev/null
+  
+  if [[ $? -eq 0 ]]; then
+    log_success "File successfully decrypted"
+    echo -e "Decrypted file saved to: ${GREEN}$output_file${NC}"
+  else
+    log_error "Decryption failed. Invalid passkey or corrupted file."
+    [[ -f "$output_file" ]] && rm "$output_file"
+    return 1
+  fi
+}
