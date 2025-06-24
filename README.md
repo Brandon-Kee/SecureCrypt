@@ -123,3 +123,9 @@ To ensure robust protection, SecureCrypt enforces strict password standards:
 <img width="436" alt="Screenshot 2025-06-15 at 9 22 26 PM" src="https://github.com/user-attachments/assets/4bdabb27-5037-4957-88bd-5a96ff0c3171" />
 <img width="362" alt="Screenshot 2025-06-15 at 9 22 50 PM" src="https://github.com/user-attachments/assets/229ae6c2-6be9-4908-9055-6bd6f00cc587" />
 <img width="163" alt="Screenshot 2025-06-15 at 9 23 37 PM" src="https://github.com/user-attachments/assets/94f0c503-f77f-4794-8461-25107658e179" />
+
+## 📚 References
+- [AES Specification (NIST)](https://csrc.nist.gov/publications/detail/fips/197/final)
+- [PBKDF2 Specification (RFC 2898)](https://tools.ietf.org/html/rfc2898)
+- [HMAC Specification (RFC 2104)](https://tools.ietf.org/html/rfc2104)
+- [OpenSSL Documentation](https://www.openssl.org/docs/)
