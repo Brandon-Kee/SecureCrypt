@@ -1,4 +1,39 @@
-# SecureCrypt
+# 🔐 SecureCrypt
+
+A robust, command-line file encryption and decryption utility built with industry-standard security practices. SecureCrypt provides **military-grade AES-256 encryption** with advanced key derivation and integrity verification.
+
+---
+
+## 🔒 Security Features
+
+- **AES-256-CBC Encryption** – Advanced Encryption Standard with 256-bit keys  
+- **PBKDF2 Key Derivation** – 100,000 iterations for password strengthening  
+- **HMAC-SHA256 Integrity Verification** – Tamper detection and authenticity validation  
+- **Secure Password Input** – Hidden input with real-time masking  
+- **Strong Password Requirements** – Enforced complexity standards  
+- **Memory-Safe Operations** – Automatic cleanup of temporary files  
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Bash shell (Linux/macOS/WSL)
+- OpenSSL
+
+### Installation
+
+
+# Clone the repository
+git clone https://github.com/yourusername/securecrypt.git
+cd securecrypt
+
+# Make the script executable
+chmod +x securecrypt.sh
+
+# Run SecureCrypt
+./securecrypt.sh
+
 
 ## Interface
 
