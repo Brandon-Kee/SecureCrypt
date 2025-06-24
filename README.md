@@ -51,6 +51,87 @@ Follow these steps to set up and run SecureCrypt on your computer:
      ./SecureCrypt.sh
      ```
    - You'll see an interactive menu with options to encrypt or decrypt files.
+---
+## 🛡️ Security Architecture
+
+### Why These Security Measures Matter
+In today's digital landscape, data breaches and unauthorized access are constant threats. Whether you're protecting personal documents, business secrets, or sensitive communications, proper encryption is your first line of defense against:
+
+- **Data Theft** - Hackers accessing your personal or business files
+
+- **Corporate Espionage** - Competitors stealing trade secrets
+
+- **Identity Theft** - Personal information falling into wrong hands
+
+- **Compliance Violations** - Legal requirements for data protection
+
+- **Ransomware Attacks** - Malicious encryption of your files by attackers
+---
+### 🔐 Encryption Implementation Details
+
+#### 🔸 AES-256-CBC Encryption
+
+**What it is**  
+Advanced Encryption Standard with 256-bit keys in Cipher Block Chaining (CBC) mode.
+
+**Why we chose it**
+- 🛡️ **Military-Grade Security** – Trusted by government agencies for classified data
+- ✅ **Proven Track Record** – Extensively reviewed by cryptography experts
+- ⚡ **High Performance** – Fast and efficient without sacrificing security
+- 🌐 **Wide Compatibility** – Supported across platforms and systems
+
+**How it works**
+- Divides your data into 128-bit blocks
+- Each block is encrypted using the previous block’s ciphertext (CBC mode)
+- A 256-bit key results in **2²⁵⁶ possible combinations** (virtually unbreakable)
+
+---
+
+#### 🔸 PBKDF2 Key Derivation (100,000 iterations)
+
+**What it is**  
+Password-Based Key Derivation Function 2 (PBKDF2) using SHA-256, with 100,000 iterations.
+
+**Why we chose it**
+- 🔐 **Brute Force Protection** – Slows down password guessing attempts
+- 🧂 **Salt Integration** – Protects against rainbow table attacks
+- 🛠️ **Scalable Difficulty** – Number of iterations can be increased as hardware improves
+- 🏛️ **Standards-Compliant** – Recommended by NIST and other security bodies
+
+**How it works**
+- Your password is hashed **100,000 times** using SHA-256
+- Each round makes brute force attacks significantly harder
+- Even with the encrypted file, cracking the password can take years
+
+---
+
+#### 🔸 HMAC-SHA256 Integrity Verification
+
+**What it is**  
+A cryptographic technique that generates a secure fingerprint of a file using your passkey and SHA-256.
+
+**Why we chose it**
+- 🧪 **Tamper Detection** – Detects even the smallest modification to your files
+- 🧾 **Authenticity Verification** – Confirms the source is legitimate
+- 🧷 **Non-Repudiation** – Guarantees the file hasn't been corrupted or altered
+- 📐 **Cryptographic Proof** – Provides mathematical integrity validation
+
+**How it works**
+- Creates a unique **HMAC** fingerprint of the encrypted file
+- Any change in the file alters the HMAC completely
+- If the fingerprint doesn’t match, decryption fails — protecting against tampering
+
+---
+
+#### 🔸 Password Security Requirements
+
+To ensure robust protection, SecureCrypt enforces strict password standards:
+
+- 🔢 **Minimum 12 Characters** – Enhances entropy and security
+- 🔡 **Mixed Case Letters** – Makes brute-force attacks more difficult
+- 🔣 **Numbers & Special Characters** – Increases complexity
+- 🧍 **Confirmation Required** – Prevents lockouts from typos
+
 
 
 ## Interface
