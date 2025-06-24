@@ -48,7 +48,7 @@ Follow these steps to set up and run SecureCrypt on your computer:
 4. **Run SecureCrypt**
    - Start the program with:
      ```bash
-     ./securecrypt.sh
+     ./SecureCrypt.sh
      ```
    - You'll see an interactive menu with options to encrypt or decrypt files.
 
