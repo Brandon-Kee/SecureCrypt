@@ -15,7 +15,7 @@ A robust, command-line file encryption and decryption utility built with industr
 
 ---
 
-## 🚀 Quick Start
+## 🚀 User Guide
 
 ### Prerequisites
 - Bash shell (Linux/macOS/WSL)
@@ -23,13 +23,34 @@ A robust, command-line file encryption and decryption utility built with industr
 
 ### Installation
 
-1. Clone or download this repository
+Follow these steps to set up and run SecureCrypt on your computer:
 
-2. `cd SecureCrypt` to navigate to the project directory
+1. **Download the project**
+   - Open your terminal (Command Line).
+   - Run the following command to download the SecureCrypt project to your computer:
+     ```bash
+     git clone https://github.com/Brandon-Kee/SecureCrypt.git
+     ```
+   - This creates a new folder called `SecureCrypt` with all the files.
 
-3. `chmod +x SecureCrypt.sh` to make the script executable
+2. **Go into the project folder**
+   - Change your current directory to the SecureCrypt folder:
+     ```bash
+     cd SecureCrypt
+     ```
 
-4. Run `./securecrypt.sh`
+3. **Make the script executable**
+   - This step gives permission for the script to run like a program:
+     ```bash
+     chmod +x SecureCrypt.sh
+     ```
+
+4. **Run SecureCrypt**
+   - Start the program with:
+     ```bash
+     ./securecrypt.sh
+     ```
+   - You'll see an interactive menu with options to encrypt or decrypt files.
 
 
 ## Interface
