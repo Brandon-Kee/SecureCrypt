@@ -23,11 +23,11 @@ A robust, command-line file encryption and decryption utility built with industr
 
 ### Installation
 
-1. Run git clone `https://github.com/Brandon-Kee/SecureCrypt.git`
+1. Clone or download this repository
 
-2. cd securecrypt
+2. `cd SecureCrypt` to navigate to the project directory
 
-3. Run `chmod +x securecrypt.sh` to make the script executable
+3. `chmod +x SecureCrypt.sh` to make the script executable
 
 4. Run `./securecrypt.sh`
 
