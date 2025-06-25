@@ -51,6 +51,10 @@ Follow these steps to set up and run SecureCrypt on your computer:
      ./SecureCrypt.sh
      ```
    - You'll see an interactive menu with options to encrypt or decrypt files.
+
+### Encrypting a File
+
+### Decrypting a File
 ---
 ## 🛡️ Security Architecture
 
