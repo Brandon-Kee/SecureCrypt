@@ -58,28 +58,43 @@ SecureCrypt provides an interactive menu system:
 2. **Decrypt File** - Restore encrypted files
 3. **Exit** - Clean termination
 
-### Encrypting a File
+### 🔐 Encrypting a File
 
-Example workflow using the provided input.txt file:
+Example workflow using the provided `input.txt` file:
 
-<img width="405" alt="Screenshot 2025-06-15 at 9 20 40 PM" src="https://github.com/user-attachments/assets/b01bfcd9-e88f-4b7f-bd48-9191b17a7c91" />
+**Step 1: Select Encryption Option**
 
+<img width="405" alt="SecureCrypt Main Menu - Select Encryption" src="https://github.com/user-attachments/assets/b01bfcd9-e88f-4b7f-bd48-9191b17a7c91" />
 
-Generate your secret passkey:
+**Step 2: Generate Your Secret Passkey**
 
-<img width="436" alt="Screenshot 2025-06-15 at 9 22 26 PM" src="https://github.com/user-attachments/assets/cea0b5f6-d684-461e-a9a4-357a82b78631" />
+Create a strong passkey following the security requirements:
 
-Your file will now be encrypted and an HMAC generated.
+<img width="436" alt="Passkey Creation with Security Requirements" src="https://github.com/user-attachments/assets/cea0b5f6-d684-461e-a9a4-357a82b78631" />
 
-<img width="362" alt="Screenshot 2025-06-15 at 9 22 50 PM" src="https://github.com/user-attachments/assets/757365a1-7b74-4092-a0b7-156eadff8a3a" />
+**Step 3: Encryption Complete**
 
-You should now see `encrypt.txt` and `encrypt.txt.hmac` in your working directory.
+Your file will now be encrypted and an HMAC generated for integrity verification:
 
-### Decrypting a File
-<img width="409" alt="Screenshot 2025-06-15 at 9 32 10 PM" src="https://github.com/user-attachments/assets/3404c893-2f48-48eb-be72-78a013700656" />
+<img width="362" alt="Successful Encryption with HMAC Generation" src="https://github.com/user-attachments/assets/757365a1-7b74-4092-a0b7-156eadff8a3a" />
 
+✅ **Result:** You should now see `encrypt.txt` and `encrypt.txt.hmac` in your working directory.
 
-<img width="440" alt="Screenshot 2025-06-15 at 9 32 23 PM" src="https://github.com/user-attachments/assets/cc45e020-15b5-42b1-bec7-34efebdca2f7" />
+---
+
+### 🔓 Decrypting a File
+
+**Step 1: Select Decryption Option**
+
+<img width="409" alt="SecureCrypt Decryption Menu Selection" src="https://github.com/user-attachments/assets/3404c893-2f48-48eb-be72-78a013700656" />
+
+**Step 2: Enter Passkey and Complete Decryption**
+
+The system will verify the HMAC before decrypting to ensure file integrity:
+
+<img width="440" alt="HMAC Verification and Successful Decryption" src="https://github.com/user-attachments/assets/cc45e020-15b5-42b1-bec7-34efebdca2f7" />
+
+✅ **Result:** Your original file has been successfully restored and verified for integrity.
 
 ---
 ## 🛡️ Security Architecture
