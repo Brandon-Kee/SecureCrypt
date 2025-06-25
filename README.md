@@ -15,7 +15,7 @@ A robust, command-line file encryption and decryption utility built with industr
 
 ---
 
-## 🚀 User Guide
+## User Guide
 
 ### Prerequisites
 - Bash shell (Linux/macOS/WSL)
@@ -71,7 +71,7 @@ In today's digital landscape, data breaches and unauthorized access are constant
 
 - **Ransomware Attacks** - Malicious encryption of your files by attackers
 ---
-### 🔐 Encryption Implementation Details
+### Encryption Implementation Details
 
 #### 🔸 AES-256-CBC Encryption
 
