@@ -76,7 +76,7 @@ In today's digital landscape, data breaches and unauthorized access are constant
 #### 🔸 AES-256-CBC Encryption
 
 **What it is**  
-Advanced Encryption Standard with 256-bit keys in Cipher Block Chaining (CBC) mode
+Advanced Encryption Standard with 256-bit keys in Cipher Block Chaining (CBC) mode.
 
 **How it works**
 - Divides your data into 128-bit blocks
@@ -88,7 +88,7 @@ Advanced Encryption Standard with 256-bit keys in Cipher Block Chaining (CBC) mo
 #### 🔸 PBKDF2 Key Derivation (100,000 iterations)
 
 **What it is**  
-Password-Based Key Derivation Function 2 (PBKDF2) using SHA-256, with 100,000 iterations
+A cryptographic algorithm that transforms a password into a secure encryption key using SHA-256 hashing and repeats the process 100,000 times.
 
 **How it works**
 - Your password is hashed **100,000 times** using SHA-256
@@ -100,7 +100,7 @@ Password-Based Key Derivation Function 2 (PBKDF2) using SHA-256, with 100,000 it
 #### 🔸 HMAC-SHA256 Integrity Verification
 
 **What it is**  
-A cryptographic technique that generates a secure fingerprint of a file using your passkey and SHA-256
+A cryptographic technique that generates a secure fingerprint of a file using your passkey and SHA-256 to ensure that a file hasn't been tampered with.
 
 **How it works**
 - Creates a unique **HMAC** fingerprint of the encrypted file
