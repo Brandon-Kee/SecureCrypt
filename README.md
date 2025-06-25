@@ -52,9 +52,35 @@ Follow these steps to set up and run SecureCrypt on your computer:
      ```
    - You'll see an interactive menu with options to encrypt or decrypt files.
 
+SecureCrypt provides an interactive menu system:
+
+1. **Encrypt File** - Secure your sensitive data
+2. **Decrypt File** - Restore encrypted files
+3. **Exit** - Clean termination
+
 ### Encrypting a File
 
+Example workflow using the provided input.txt file:
+
+<img width="405" alt="Screenshot 2025-06-15 at 9 20 40 PM" src="https://github.com/user-attachments/assets/b01bfcd9-e88f-4b7f-bd48-9191b17a7c91" />
+
+
+Generate your secret passkey:
+
+<img width="436" alt="Screenshot 2025-06-15 at 9 22 26 PM" src="https://github.com/user-attachments/assets/cea0b5f6-d684-461e-a9a4-357a82b78631" />
+
+Your file will now be encrypted and an HMAC generated.
+
+<img width="362" alt="Screenshot 2025-06-15 at 9 22 50 PM" src="https://github.com/user-attachments/assets/757365a1-7b74-4092-a0b7-156eadff8a3a" />
+
+You should now see `encrypt.txt` and `encrypt.txt.hmac` in your working directory.
+
 ### Decrypting a File
+<img width="409" alt="Screenshot 2025-06-15 at 9 32 10 PM" src="https://github.com/user-attachments/assets/3404c893-2f48-48eb-be72-78a013700656" />
+
+
+<img width="440" alt="Screenshot 2025-06-15 at 9 32 23 PM" src="https://github.com/user-attachments/assets/cc45e020-15b5-42b1-bec7-34efebdca2f7" />
+
 ---
 ## 🛡️ Security Architecture
 
@@ -118,15 +144,6 @@ To ensure robust protection, SecureCrypt enforces strict password standards:
 - **Numbers & Special Characters** – Increases complexity
 - **Confirmation Required** – Prevents lockouts from typos
 
-
-
-## Interface
-
-<img width="450" alt="Screenshot 2025-06-15 at 9 22 12 PM" src="https://github.com/user-attachments/assets/3e55b8c0-3e15-434f-9510-5cf82f47b5a6" />
-
-<img width="436" alt="Screenshot 2025-06-15 at 9 22 26 PM" src="https://github.com/user-attachments/assets/4bdabb27-5037-4957-88bd-5a96ff0c3171" />
-<img width="362" alt="Screenshot 2025-06-15 at 9 22 50 PM" src="https://github.com/user-attachments/assets/229ae6c2-6be9-4908-9055-6bd6f00cc587" />
-<img width="163" alt="Screenshot 2025-06-15 at 9 23 37 PM" src="https://github.com/user-attachments/assets/94f0c503-f77f-4794-8461-25107658e179" />
 
 ## 📚 References
 - [AES Specification (NIST)](https://csrc.nist.gov/publications/detail/fips/197/final)
