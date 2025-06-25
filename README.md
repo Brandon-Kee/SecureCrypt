@@ -26,7 +26,7 @@ A robust, command-line file encryption and decryption utility built with industr
 Follow these steps to set up and run SecureCrypt on your computer:
 
 1. **Download the project**
-   - Open your terminal (Command Line).
+   - Open your terminal.
    - Run the following command to download the SecureCrypt project to your computer:
      ```bash
      git clone https://github.com/Brandon-Kee/SecureCrypt.git
